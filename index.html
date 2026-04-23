@@ -385,10 +385,10 @@
   /* SERVICES / STACKING DISKS */
   #services {
     background: var(--cream);
-    padding: 6rem 0 0;
+    padding: 3rem 0 0;
   }
   #services .services-header {
-    text-align: center; padding: 0 3rem 4rem;
+    text-align: center; padding: 0 3rem 2rem;
   }
   #services .services-header h2 {
     font-family: var(--font-display);
@@ -406,9 +406,9 @@
     border-radius: 50%;
     margin: 0 auto 0;
     display: flex; align-items: center; justify-content: center;
-    position: sticky; top: 8vh;
+    position: sticky; top: 6vh;
     will-change: transform;
-    transform: translateY(100vh);
+    transform: translateY(20vh);
   }
   .disk-content {
     text-align: center; padding: 3rem;
@@ -481,26 +481,25 @@
   .filter-btn.active { border-color: var(--coral); color: var(--coral); background: rgba(232,108,84,0.08); }
   .work-grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: 60px;
+    grid-template-columns: 1fr 1.4fr 1.4fr 1fr;
     gap: 10px;
+    align-items: start;
+  }
+  /* Reel ratio: 9:16 */
+  .work-tile.ratio-reel {
+    aspect-ratio: 9 / 16;
+  }
+  /* Post ratio: 4:5 (Instagram portrait post) */
+  .work-tile.ratio-post {
+    aspect-ratio: 4 / 5;
   }
   .work-tile {
     position: relative; overflow: hidden;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.06);
     cursor: none;
+    width: 100%;
   }
-  .work-tile:nth-child(1)  { grid-column: span 5; grid-row: span 6; }
-  .work-tile:nth-child(2)  { grid-column: span 4; grid-row: span 4; }
-  .work-tile:nth-child(3)  { grid-column: span 3; grid-row: span 4; }
-  .work-tile:nth-child(4)  { grid-column: span 4; grid-row: span 5; }
-  .work-tile:nth-child(5)  { grid-column: span 3; grid-row: span 5; }
-  .work-tile:nth-child(6)  { grid-column: span 5; grid-row: span 5; }
-  .work-tile:nth-child(7)  { grid-column: span 3; grid-row: span 4; }
-  .work-tile:nth-child(8)  { grid-column: span 4; grid-row: span 4; }
-  .work-tile:nth-child(9)  { grid-column: span 4; grid-row: span 4; }
-  .work-tile:nth-child(10) { grid-column: span 8; grid-row: span 4; }
   .tile-media {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
@@ -558,9 +557,10 @@
   .work-howto strong { color: rgba(255,255,255,0.5); font-weight: 500; }
   @media (max-width: 768px) {
     #work { padding: 5rem 1.5rem; }
-    .work-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
-    .work-tile:nth-child(n) { grid-column: span 1; grid-row: span 1; }
-    .work-tile:nth-child(1), .work-tile:nth-child(6) { grid-column: span 2; }
+    .work-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
   }
 
   /* BRANDS / LOGOS */
@@ -904,16 +904,16 @@
     <button class="filter-btn" onclick="filterWork('lifestyle', this)">Lifestyle</button>
   </div>
 
-  <!-- Bento grid: replace tile-placeholder divs with your actual <img> or <video> tags -->
+  <!-- SYMMETRIC COLLAGE: reel | post | post | reel  ×  2 rows -->
   <div class="work-grid" id="workGrid">
 
-    <!-- TILE 1: large left, Beauty Reel -->
-    <a class="work-tile" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="beauty">
+    <!-- ROW 1 -->
+    <!-- Col 1: Beauty Reel (9:16 tall) -->
+    <a class="work-tile ratio-reel" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="beauty">
       <div class="tile-placeholder" style="background: linear-gradient(135deg,#fde9dc,#f2c4bb,#e8a0a0);">
         <div class="tile-placeholder-icon">💄</div>
         <div class="tile-placeholder-label">Beauty Reel</div>
-        <!-- REPLACE: <video class="tile-media" src="your-beauty-reel.mp4" autoplay muted loop playsinline></video> -->
-        <!-- OR:      <img class="tile-media" src="your-beauty-screenshot.jpg" alt="Beauty reel"> -->
+        <!-- REPLACE: <video class="tile-media" src="work-beauty-reel.mp4" autoplay muted loop playsinline></video> -->
       </div>
       <div class="tile-overlay">
         <span class="tile-overlay-tag">Beauty</span>
@@ -922,11 +922,12 @@
       </div>
     </a>
 
-    <!-- TILE 2: Fashion post -->
-    <a class="work-tile" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="fashion">
+    <!-- Col 2: Fashion Post (4:5) -->
+    <a class="work-tile ratio-post" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="fashion">
       <div class="tile-placeholder" style="background: linear-gradient(135deg,#ece3f4,#c8b4e0);">
         <div class="tile-placeholder-icon">👗</div>
         <div class="tile-placeholder-label">Fashion Post</div>
+        <!-- REPLACE: <img class="tile-media" src="work-ootd.jpg" alt="OOTD"> -->
       </div>
       <div class="tile-overlay">
         <span class="tile-overlay-tag">Fashion</span>
@@ -935,24 +936,12 @@
       </div>
     </a>
 
-    <!-- TILE 3: Cafe reel -->
-    <a class="work-tile" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="cafe">
-      <div class="tile-placeholder" style="background: linear-gradient(135deg,#fef2ce,#e0c97a);">
-        <div class="tile-placeholder-icon">☕</div>
-        <div class="tile-placeholder-label">Café Reel</div>
-      </div>
-      <div class="tile-overlay">
-        <span class="tile-overlay-tag">Café</span>
-        <span class="tile-overlay-title">Delhi Café Visit</span>
-        <span class="tile-overlay-link">View on Instagram ↗</span>
-      </div>
-    </a>
-
-    <!-- TILE 4: Brand collab -->
-    <a class="work-tile" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="brand">
+    <!-- Col 3: Brand Collab Post (4:5) -->
+    <a class="work-tile ratio-post" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="brand">
       <div class="tile-placeholder" style="background: linear-gradient(135deg,#d7efe6,#8ecfb8);">
         <div class="tile-placeholder-icon">✨</div>
         <div class="tile-placeholder-label">Brand Collab</div>
+        <!-- REPLACE: <img class="tile-media" src="work-brand-collab.jpg" alt="Brand Collab"> -->
       </div>
       <div class="tile-overlay">
         <span class="tile-overlay-tag">Brand Collab</span>
@@ -961,11 +950,27 @@
       </div>
     </a>
 
-    <!-- TILE 5: GRWM reel -->
-    <a class="work-tile" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="beauty">
+    <!-- Col 4: Café Reel (9:16 tall) -->
+    <a class="work-tile ratio-reel" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="cafe">
+      <div class="tile-placeholder" style="background: linear-gradient(135deg,#fef2ce,#e0c97a);">
+        <div class="tile-placeholder-icon">☕</div>
+        <div class="tile-placeholder-label">Café Reel</div>
+        <!-- REPLACE: <video class="tile-media" src="work-cafe-reel.mp4" autoplay muted loop playsinline></video> -->
+      </div>
+      <div class="tile-overlay">
+        <span class="tile-overlay-tag">Café</span>
+        <span class="tile-overlay-title">Delhi Café Visit</span>
+        <span class="tile-overlay-link">View on Instagram ↗</span>
+      </div>
+    </a>
+
+    <!-- ROW 2 -->
+    <!-- Col 1: GRWM Reel (9:16 tall) -->
+    <a class="work-tile ratio-reel" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="beauty">
       <div class="tile-placeholder" style="background: linear-gradient(135deg,#fde9dc,#e8a090);">
         <div class="tile-placeholder-icon">🌷</div>
         <div class="tile-placeholder-label">GRWM Reel</div>
+        <!-- REPLACE: <video class="tile-media" src="work-grwm.mp4" autoplay muted loop playsinline></video> -->
       </div>
       <div class="tile-overlay">
         <span class="tile-overlay-tag">Beauty</span>
@@ -974,11 +979,12 @@
       </div>
     </a>
 
-    <!-- TILE 6: large, Lifestyle favourite -->
-    <a class="work-tile" href="https://www.instagram.com/_manviie/portfolio/BBEHjYbEJE/" target="_blank" data-cat="lifestyle">
+    <!-- Col 2: Favourite Post (4:5) -->
+    <a class="work-tile ratio-post" href="https://www.instagram.com/_manviie/portfolio/BBEHjYbEJE/" target="_blank" data-cat="lifestyle">
       <div class="tile-placeholder" style="background: linear-gradient(135deg,#f5e8f8,#d4aadc);">
         <div class="tile-placeholder-icon">⭐</div>
         <div class="tile-placeholder-label">Favourite Post</div>
+        <!-- REPLACE: <img class="tile-media" src="work-favourite.jpg" alt="Favourite Post"> -->
       </div>
       <div class="tile-overlay">
         <span class="tile-overlay-tag">Fav ✦</span>
@@ -987,54 +993,30 @@
       </div>
     </a>
 
-    <!-- TILE 7: Fashion reel -->
-    <a class="work-tile" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="fashion">
-      <div class="tile-placeholder" style="background: linear-gradient(135deg,#ece3f4,#b89fd0);">
-        <div class="tile-placeholder-icon">💅</div>
-        <div class="tile-placeholder-label">Style Reel</div>
-      </div>
-      <div class="tile-overlay">
-        <span class="tile-overlay-tag">Fashion</span>
-        <span class="tile-overlay-title">Style Series</span>
-        <span class="tile-overlay-link">View on Instagram ↗</span>
-      </div>
-    </a>
-
-    <!-- TILE 8: Brand event -->
-    <a class="work-tile" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="brand">
-      <div class="tile-placeholder" style="background: linear-gradient(135deg,#fef2ce,#f0d080);">
-        <div class="tile-placeholder-icon">🌸</div>
-        <div class="tile-placeholder-label">Brand Event</div>
-      </div>
-      <div class="tile-overlay">
-        <span class="tile-overlay-tag">Brand Event</span>
-        <span class="tile-overlay-title">Launch Coverage</span>
-        <span class="tile-overlay-link">View on Instagram ↗</span>
-      </div>
-    </a>
-
-    <!-- TILE 9: Cafe carousel -->
-    <a class="work-tile" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="cafe">
-      <div class="tile-placeholder" style="background: linear-gradient(135deg,#d7efe6,#a0d4c0);">
-        <div class="tile-placeholder-icon">🍰</div>
-        <div class="tile-placeholder-label">Café Carousel</div>
-      </div>
-      <div class="tile-overlay">
-        <span class="tile-overlay-tag">Café</span>
-        <span class="tile-overlay-title">Aesthetic Eats</span>
-        <span class="tile-overlay-link">View on Instagram ↗</span>
-      </div>
-    </a>
-
-    <!-- TILE 10: Ethnic wear, Indya collab -->
-    <a class="work-tile" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="fashion">
+    <!-- Col 3: Ethnic Wear Post (4:5) -->
+    <a class="work-tile ratio-post" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="fashion">
       <div class="tile-placeholder" style="background: linear-gradient(135deg,#fef2ce,#f5d49a,#e8b06a);">
         <div class="tile-placeholder-icon">🪷</div>
-        <div class="tile-placeholder-label">Ethnic Wear Collab</div>
+        <div class="tile-placeholder-label">Ethnic Wear</div>
+        <!-- REPLACE: <img class="tile-media" src="work-ethnic.jpg" alt="Ethnic Wear Collab"> -->
       </div>
       <div class="tile-overlay">
         <span class="tile-overlay-tag">Fashion · Ethnic</span>
         <span class="tile-overlay-title">Indya Collab</span>
+        <span class="tile-overlay-link">View on Instagram ↗</span>
+      </div>
+    </a>
+
+    <!-- Col 4: Style Reel (9:16 tall) -->
+    <a class="work-tile ratio-reel" href="https://www.instagram.com/_manviie/" target="_blank" data-cat="fashion">
+      <div class="tile-placeholder" style="background: linear-gradient(135deg,#ece3f4,#b89fd0);">
+        <div class="tile-placeholder-icon">💅</div>
+        <div class="tile-placeholder-label">Style Reel</div>
+        <!-- REPLACE: <video class="tile-media" src="work-style-reel.mp4" autoplay muted loop playsinline></video> -->
+      </div>
+      <div class="tile-overlay">
+        <span class="tile-overlay-tag">Fashion</span>
+        <span class="tile-overlay-title">Style Series</span>
         <span class="tile-overlay-link">View on Instagram ↗</span>
       </div>
     </a>
@@ -1129,7 +1111,7 @@
         <p class="disk-detail">Live event presence, PR unboxing reels, and launch day coverage that capture the excitement your brand deserves.</p>
       </div>
     </div>
-    <div class="disk" id="disk-5" style="background: #f5e8f8; margin-bottom: 20vh;">
+    <div class="disk" id="disk-5" style="background: #f5e8f8; margin-bottom: 4rem;">
       <div class="disk-content">
         <span class="disk-num">05</span>
         <h3>Raw UGC Ads</h3>
@@ -1170,7 +1152,7 @@
   </a>
   <div class="contact-socials">
     <a href="https://www.instagram.com/_manviie" target="_blank">Instagram</a>
-    <a href="https://www.instagram.com/_manviie/portfolio/BBEHjYbEJE/" target="_blank">Portfolio ↗</a>
+    <a href="https://www.instagram.com/_manviie/portfolio/BBEHjYbEJE/" target="_blank">Instagram Portfolio ↗</a>
     <a href="mailto:workmanvisharma@gmail.com">Email</a>
   </div>
   <p class="contact-city">Delhi, India</p>
@@ -1332,7 +1314,7 @@ if (portrait) {
 const disks = gsap.utils.toArray('.disk');
 disks.forEach((disk, i) => {
   gsap.fromTo(disk,
-    { y: '100vh', scale: 0.88 },
+    { y: '20vh', scale: 0.88 },
     {
       y: 0, scale: 1,
       ease: 'power3.out',

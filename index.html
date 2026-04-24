@@ -273,13 +273,10 @@
   .hp-tag-1 { top: 18%; right: 4%; animation: hpTagFloat1 5s ease-in-out infinite; }
   .hp-tag-2 { bottom: 26%; left: 3%; animation: hpTagFloat2 6.5s 1s ease-in-out infinite; }
   .hp-tag-3 { top: 32%; left: 3%; color: var(--coral); border-color: rgba(232,108,84,0.2); animation: hpTagFloat3 4.5s 0.5s ease-in-out infinite; }
-  .hp-tag-4 { bottom: 18%; right: 3%; animation: hpTagFloat4 5.5s 0.8s ease-in-out infinite; }
-
-  @keyframes hpTagFloat1 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    @keyframes hpTagFloat1 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
   @keyframes hpTagFloat2 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
   @keyframes hpTagFloat3 { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-9px) rotate(1deg); } }
-  @keyframes hpTagFloat4 { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
-  .hp-sparkle {
+   .hp-sparkle {
     position: absolute; color: var(--coral);
     font-size: 13px; opacity: 0;
     animation: hpSparklePop 3.5s ease-in-out infinite;
@@ -351,14 +348,6 @@
   .stat-item + .stat-item {
     padding: 0 2rem;
     border-left: 1px solid rgba(20,15,18,0.12);
-  }
-  .stats-source {
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  opacity: 0.5;
-  margin-top: 0.6rem;
   }
   .stat-num {
     font-family: var(--font-display);
@@ -1114,9 +1103,7 @@
         <div class="stat-label">Vibes</div>
       </div>
     </div>
-    </div>
-    <p class="stats-source">Instagram Insights, Apr 2026</p>
-    <div class="hero-cta">
+      <div class="hero-cta">
       <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's Collab</button>
       <a class="btn-ghost" href="#content-slider">View Content ↓</a>
     </div>
@@ -1149,9 +1136,8 @@
       <span class="hp-monogram">M.</span>
     </div>
     <div class="hp-float-tag hp-tag-1">UGC Creator ✦</div>
-    <div class="hp-float-tag hp-tag-2">Delhi NCR</div>
+    <div class="hp-float-tag hp-tag-2">Available for Collab</div>
     <div class="hp-float-tag hp-tag-3">10K Followers</div>
-   <div class="hp-float-tag hp-tag-4">Available for Collab</div>
     <span class="hp-replace-hint">→ replace with manvi-profile.jpg</span>
   </div>
 

@@ -196,19 +196,19 @@
   .hp-dot-b { width: 5px; height: 5px; background: var(--blush); opacity: 0.6; top: auto; bottom: 0; }
   .hp-dot-c { width: 4px; height: 4px; background: var(--lilac); top: 50%; left: 0; transform: translateY(-50%); opacity: 0.5; }
   .hp-dot-d { width: 5px; height: 5px; background: var(--butter); top: 50%; left: auto; right: 0; transform: translateY(-50%); opacity: 0.5; }
-  .hp-blob {
-    position: relative;
-    width: 240px; height: 265px;
-    border-radius: 58% 42% 54% 46% / 48% 52% 48% 52%;
-    background: linear-gradient(145deg, #fde9dc 0%, #f2c4bb 30%, #e0a8c8 65%, #c8a0de 100%);
-    display: flex; align-items: center; justify-content: center;
-    animation: hpBlobMorph 8s ease-in-out infinite, hpBlobFloat 5.5s ease-in-out infinite;
-    overflow: hidden;
-    box-shadow:
-      0 0 0 1px rgba(232,108,84,0.12),
-      0 24px 70px rgba(232,108,84,0.22),
-      0 8px 30px rgba(200,120,180,0.18);
-  }
+ .hp-blob {
+  position: relative;
+  width: 300px; height: 330px;
+  border-radius: 58% 42% 54% 46% / 48% 52% 48% 52%;
+  background: linear-gradient(145deg, #fde9dc 0%, #f2c4bb 30%, #e0a8c8 65%, #c8a0de 100%);
+  display: flex; align-items: center; justify-content: center;
+  animation: hpBlobMorph 8s ease-in-out infinite, hpBlobFloat 5.5s ease-in-out infinite;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(232,108,84,0.12),
+    0 24px 70px rgba(232,108,84,0.22),
+    0 8px 30px rgba(200,120,180,0.18);
+}
   @keyframes hpBlobMorph {
     0%   { border-radius: 58% 42% 54% 46% / 48% 52% 48% 52%; }
     25%  { border-radius: 46% 54% 42% 58% / 56% 44% 56% 44%; }
@@ -1087,7 +1087,7 @@
       <div class="hbm-ring hbm-ring-2"></div>
       <div class="hbm-blob">
         <div class="hbm-shimmer"></div>
-        <span class="hbm-mono">M.</span>
+        <img src="manvi.png" style="width:calc(100% - 16px); height:calc(100% - 16px); object-fit:cover; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:inherit;">
       </div>
       <span class="hbm-tag hbm-tag-1">UGC Creator ✦</span>
       <span class="hbm-tag hbm-tag-2">Delhi NCR</span>
@@ -1131,20 +1131,16 @@
     <div class="hp-sparkle">✦</div>
     <div class="hp-sparkle">✦</div>
     <!-- REPLACE: swap .hp-blob with <img src="manvi-profile.jpg" style="width:240px;height:265px;object-fit:cover;border-radius:58% 42% 54% 46% / 48% 52% 48% 52%;"> -->
-    <div class="hp-blob">
-      <div class="hp-orb hp-orb-1"></div>
-      <div class="hp-orb hp-orb-2"></div>
-      <div class="hp-orb hp-orb-3"></div>
-      <div class="hp-blob-shimmer"></div>
-      <span class="hp-monogram">M.</span>
-    </div>
+  <div class="hp-blob">
+  <div class="hp-blob-shimmer"></div>
+  <img src="manvi.png" style="width:calc(100% - 24px); height:calc(100% - 24px); object-fit:cover; position:absolute; border-radius:inherit;">
+</div>
     <div class="hp-float-tag hp-tag-1">UGC Creator ✦</div>
-    <div class="hp-float-tag hp-tag-2">Available for Collab ✦</div>
+    <div class="hp-float-tag hp-tag-2">Available for Collab</div>
     <div class="hp-float-tag hp-tag-3">10K Followers</div>
     <div class="hp-float-tag hp-tag-4">Delhi-NCR</div>
-    <span class="hp-replace-hint">→ replace with manvi-profile.jpg</span>
   </div>
-
+</section>
 
 </section>
 

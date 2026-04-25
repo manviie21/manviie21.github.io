@@ -503,7 +503,7 @@
     background: linear-gradient(135deg, var(--peach), var(--blush), var(--lilac));
     border-radius: 50% 50% 48% 52% / 44% 44% 56% 56%;
     overflow: hidden;
-      .about-portrait {
+    .about-portrait {
   /* existing styles... */
       width: calc(100% - 48px);
   height: calc(100% - 48px);
@@ -515,7 +515,7 @@
     object-fit: cover;
   }
   .about-portrait-img {
-width: 100%; height: 100%;
+    width: 100%; height: 100%;
     background: linear-gradient(160deg, #fde8e0 0%, #f5c5ba 30%, #ebb0c0 60%, #d4a0cc 100%);
     position: relative;
     display: flex; align-items: center; justify-content: center;
@@ -748,7 +748,7 @@ width: 100%; height: 100%;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
     }
-   .about-portrait-wrap { display: none; }
+   .about-portrait-wrap { display: flex; }
   }
 
   /* BRANDS / LOGOS */
@@ -944,7 +944,8 @@ width: 100%; height: 100%;
     #content-slider { height: 75vh; }
 
     /* About — single column, portrait not squeezed */
-    #about { grid-template-columns: 1fr; gap: 0; padding: 3.5rem 1.4rem 3rem; }
+   #about {
+ display: block; gap: 0; padding: 3.5rem 1.4rem 3rem; }
     .about-portrait-wrap { max-width: 260px; margin: 0 auto 2.5rem; }
     .about-portrait { aspect-ratio: 3/4; width: 100%; border-radius: 50% 50% 48% 52% / 44% 44% 56% 56%; }
     .about-portrait-tag { right: -0.5rem; bottom: -0.8rem; font-size: 9px; padding: 0.6rem 0.9rem; }
